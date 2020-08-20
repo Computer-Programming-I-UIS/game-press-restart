@@ -1,0 +1,23 @@
+void mover() {
+    pushMatrix();
+    translate(width/2, height/2);
+    translate(pos_x, pos_y);
+    robot.draw();
+    popMatrix();
+    if (key==CODED)
+    {
+      if (keyCode==LEFT)
+      {
+        pos_x-=3;
+      } else if (keyCode==RIGHT)
+      {
+        pos_x+=3;
+      } else if (keyCode==UP)
+      {
+        pos_y-=3;
+      } else if (keyCode==DOWN)
+      {
+        pos_y+=3;
+      }
+    }
+  }

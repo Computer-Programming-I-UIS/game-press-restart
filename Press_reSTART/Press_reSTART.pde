@@ -1,37 +1,41 @@
 import ddf.minim.*;
+import sprites.*;
+import sprites.maths.*;
+import sprites.utils.*;
+
 
 Minim minim;
-AudioPlayer player;
-PImage menu = loadImage("carga.png");
-PImage escenario = loadImage("fondo juego.png");
-PImage piso = loadImage("piso.png");
-int gamestate= 1;
+AudioPlayer musica;
+Fondo fondo;
+Menu menu;
 
-Robot Roboto;
+int iniciar = 0; //Iniciar con el menu
+Robot roboto;
 
-void setup(){
-  size(850,600);
+PApplet app;
+
+void setup() {
+  size(850, 600);
+  app = this;
   minim = new Minim(this);
-  player = minim.loadFile("Dreamscape. [Lofi  Jazz Hop  Chillhop].mp3");
-  Roboto = new Robot(width/2, height/2);
-}
-
-void draw(){
-  if(gamestate == 0){
-  imageMode(CORNER);
-  image(escenario, 0, 0);
-  image(piso, 0, 540);
-  player.play();
-  }
-  else{
-    imageMode(CENTER);
-    image(menu, width/2, height/2);
-  }
-}
-
-
-
-      
- 
+  fondo = new Fondo("fondo juego.jpg", "piso.png");
+  menu = new Menu("Carga.jpg");
+  musica = minim.loadFile("Dreamscape. [Lofi  Jazz Hop  Chillhop].mp3");
+  roboto = new Robot(0, 0, "robot.png", app);
   
   
+  musica.play();
+}
+
+void draw() {
+  
+  if (iniciar == 0) { // Ventana del menu
+    menu.mostrar();
+    iniciar = menu.botonPresionado();
+  } else { // inicia el juego
+    fondo.mostrar();
+    roboto.mover();
+    roboto.controles();
+    return;
+  }
+}
