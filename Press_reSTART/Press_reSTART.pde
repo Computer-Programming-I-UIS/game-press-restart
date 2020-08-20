@@ -2,40 +2,32 @@ import ddf.minim.*;
 
 Minim minim;
 AudioPlayer player;
-PImage img;
+PImage menu = loadImage("carga.png");
+PImage escenario = loadImage("fondo juego.png");
+PImage piso = loadImage("piso.png");
+int gamestate= 1;
 
+Robot Roboto;
 
 void setup(){
   size(850,600);
-  img =loadImage("Fondo.png");
   minim = new Minim(this);
-  player = minim.loadFile("Dreamscape.mp3");
+  player = minim.loadFile("Dreamscape. [Lofi  Jazz Hop  Chillhop].mp3");
+  Roboto = new Robot(width/2, height/2);
 }
 
 void draw(){
-  image(img, 0, 0);
-  
-  if (player.isPlaying() ){
-    text("Presione una tecla", 10, 20);
-    
+  if(gamestate == 0){
+  imageMode(CORNER);
+  image(escenario, 0, 0);
+  image(piso, 0, 540);
+  player.play();
   }
-  else
-  {
-    text("Presione una tecla", 10 , 20);
+  else{
+    imageMode(CENTER);
+    image(menu, width/2, height/2);
   }
 }
-  
-  
-  void keyPressed(){
-    if(player.isPlaying() )
-    {
-      player.pause();
-    }
-    else
-    {
-      player.play();
-    }
-  }
 
 
 
