@@ -21,4 +21,11 @@ class Menu {
     }
     return 0;
   }
+  int botonReinicio() {
+    rect(boton_x-200, boton_y-300, boton_x-170, boton_y-270);
+    if (mousePressed) {
+      if (mouseX>boton_x-200 && mouseX<boton_x-170 && mouseY>boton_y-300 && mouseY<boton_y-270)return 0;
+    }
+    return 1;
+  }
 }

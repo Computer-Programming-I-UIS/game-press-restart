@@ -21,10 +21,6 @@ void setup() {
   fondo = new Fondo("fondo juego.jpg", "piso.png");
   menu = new Menu("Carga.jpg");
   musica = minim.loadFile("grape-leaves.mp3");
-  roboto = new Robot(0, 0, "robot movement left.png", app);
-  roboto = new Robot(0, 0, "robot movement right.png", app);
-  roboto = new Robot(0, 0, "robot jump left.png", app);
-  roboto = new Robot(0, 0, "robot jump right.png", app);
   roboto = new Robot(0, 0, "robot.png", app);
   
   
@@ -37,6 +33,7 @@ void draw() {
     menu.mostrar();
     iniciar = menu.botonPresionado();
   } else { // inicia el juego
+    menu.botonReinicio();
     fondo.mostrar();
     roboto.controles();
     return;
