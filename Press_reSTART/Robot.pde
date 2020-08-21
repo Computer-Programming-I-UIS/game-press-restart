@@ -16,7 +16,7 @@ class Robot {
     pos_y = posy;
     sw = new StopWatch();
     robot = new Sprite(app, fileName, 2, 3, 1);
-    robot.setFrameSequence(0, 4, 0.5);
+    robot.setFrameSequence(0, 4, 0.4);
   }
 
   //Metodos
@@ -28,11 +28,13 @@ class Robot {
       switch(keyCode) {
       case RIGHT:
         pos_x += 10* speed;
-        move = loadImage("robot movement right.png");
+        robot = new Sprite(app, "robot movement right.png", 2, 3, 1);
+        robot.setFrameSequence(0, 1, 0.4);
         break;
       case LEFT:
         pos_x -= 10 * speed;
-        move = loadImage("robot movement left.png");
+        robot = new Sprite(app, "robot movement left.png", 2, 3, 1);
+        robot.setFrameSequence(0, 1, 0.4);
         break;
       }
     }
@@ -47,21 +49,5 @@ class Robot {
     translate(pos_x, pos_y);
     robot.draw();
     popMatrix();
-    if (key==CODED)
-    {
-      if (keyCode==LEFT)
-      {
-        pos_x-=3;
-      } else if (keyCode==RIGHT)
-      {
-        pos_x+=3;
-      } else if (keyCode==UP)
-      {
-        pos_y-=3;
-      } else if (keyCode==DOWN)
-      {
-        pos_y+=3;
-      }
     }
   }
-}

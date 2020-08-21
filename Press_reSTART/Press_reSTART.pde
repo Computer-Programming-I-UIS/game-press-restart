@@ -20,8 +20,12 @@ void setup() {
   minim = new Minim(this);
   fondo = new Fondo("fondo juego.jpg", "piso.png");
   menu = new Menu("Carga.jpg");
-  musica = minim.loadFile("Dreamscape. [Lofi  Jazz Hop  Chillhop].mp3");
-  roboto = new Robot(0, 0, "robot.png", app);
+  musica = minim.loadFile("grape-leaves.mp3");
+  roboto = new Robot(0, 0, "robot movement left.png", app);
+  roboto = new Robot(0, 0, "robot movement right.png", app);
+  roboto = new Robot(0, 0, "robot jump left.png", app);
+  roboto = new Robot(0, 0, "robot jump right.png", app);
+    roboto = new Robot(0, 0, "robot.png", app);
   
   
   musica.play();
