@@ -25,7 +25,7 @@ void setup() {
   roboto = new Robot(0, 0, "robot movement right.png", app);
   roboto = new Robot(0, 0, "robot jump left.png", app);
   roboto = new Robot(0, 0, "robot jump right.png", app);
-    roboto = new Robot(0, 0, "robot.png", app);
+  roboto = new Robot(0, 0, "robot.png", app);
   
   
   musica.play();
@@ -38,7 +38,6 @@ void draw() {
     iniciar = menu.botonPresionado();
   } else { // inicia el juego
     fondo.mostrar();
-    roboto.mover();
     roboto.controles();
     return;
   }

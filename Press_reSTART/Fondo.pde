@@ -11,7 +11,8 @@ class Fondo {
 
   //Metodos
   void mostrar() {
-    image(escenario, 0, 0);
-    image(piso, 0, 476);
+    imageMode(CENTER);
+    image(escenario, width/2,height/2);
+    image(piso, width/2, 700);
   }
 }

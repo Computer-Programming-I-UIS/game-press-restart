@@ -8,7 +8,7 @@ class Robot {
   float salto = 25;
 
   Sprite robot;
-   StopWatch sw;
+  StopWatch sw;
 
   //Constructor
   Robot(float posx, float posy, String fileName, PApplet app) {
@@ -16,7 +16,7 @@ class Robot {
     pos_y = posy;
     sw = new StopWatch();
     robot = new Sprite(app, fileName, 2, 3, 1);
-    robot.setFrameSequence(0, 4, 0.4);
+    robot.setFrameSequence(0, 4, 0.2);
   }
 
   //Metodos
@@ -24,24 +24,7 @@ class Robot {
     move = loadImage("robot.png");
   }
   void controles() {
-    if (keyPressed) {
-      switch(keyCode) {
-      case RIGHT:
-        pos_x += 10* speed;
-        robot = new Sprite(app, "robot movement right.png", 2, 3, 1);
-        robot.setFrameSequence(0, 1, 0.4);
-        break;
-      case LEFT:
-        pos_x -= 10 * speed;
-        robot = new Sprite(app, "robot movement left.png", 2, 3, 1);
-        robot.setFrameSequence(0, 1, 0.4);
-        break;
-      }
-    }
-  }
 
-  void mover() {
-    
     float elapsedTime = (float) sw.getElapsedTime();
     S4P.updateSprites(elapsedTime);
     pushMatrix();
@@ -49,5 +32,19 @@ class Robot {
     translate(pos_x, pos_y);
     robot.draw();
     popMatrix();
+    if (keyPressed) {
+      switch(keyCode) {
+      case RIGHT:
+        pos_x += 10* speed;
+        robot = new Sprite(app, "robot movement right.png", 3, 3, 1);
+        robot.setFrameSequence(0, 1, 0.2);
+        break;
+      case LEFT:
+        pos_x -= 10 * speed;
+        robot = new Sprite(app, "robot movement left.png", 2, 3, 1);
+        robot.setFrameSequence(0, 1, 0.2);
+        break;
+      }
     }
   }
+}

@@ -1,0 +1,1 @@
+S4P.drawSprites();//añadir al caso de que el jugador no complete el segundo nivel a tiempo
