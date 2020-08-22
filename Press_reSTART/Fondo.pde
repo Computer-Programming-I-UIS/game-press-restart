@@ -12,7 +12,7 @@ class Fondo {
   //Metodos
   void mostrar() {
     imageMode(CENTER);
-    image(escenario, width/2,250);
+    image(escenario, width/2, 250);
     image(piso, width/2, 750);
   }
 }

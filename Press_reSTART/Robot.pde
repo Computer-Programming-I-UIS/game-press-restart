@@ -7,17 +7,24 @@ class Robot {
   float floor = 550;
   float salto = 25;
 
-  Sprite robot;
+  Sprite robotLeft;
+  Sprite robotRight;
+  Sprite robotQuiet;
   StopWatch sw;
 
   //Constructor
-  Robot(float posx, float posy, String fileName, PApplet app) {
+  Robot(float posx, float posy, String fileNameQuiet, String fileNameRight, String fileNameLeft, PApplet app) {
     pos_x = posx;
     pos_y = posy;
     sw = new StopWatch();
-    robot = new Sprite(app, fileName, 5, 1, 1);
-    robot.setFrameSequence(0, 4, 0.2);
+    robotLeft = new Sprite(app, fileNameLeft, 3, 1, 1);
+    robotRight = new Sprite(app, fileNameRight, 3, 1, 1);
+    robotQuiet = new Sprite(app, fileNameQuiet, 5, 1, 1);
+    robotLeft.setFrameSequence(0, 4, 0.2);
+    robotRight.setFrameSequence(0, 4, 0.2);
+    robotQuiet.setFrameSequence(0, 4, 0.2);
   }
+
 
   //Metodos
   void mostrar() {
@@ -27,29 +34,34 @@ class Robot {
 
     float elapsedTime = (float) sw.getElapsedTime();
     S4P.updateSprites(elapsedTime);
-    pushMatrix();
-    translate(width/2, 400);
-    translate(pos_x, pos_y);
-    robot.draw();
-    popMatrix();
+
     if (keyPressed) {
       switch(keyCode) {
       case RIGHT:
-        pos_x += 10* speed;
-        robot = new Sprite(app, "robot move right.png", 3, 1, 1);
-        robot.setFrameSequence(0, 1, 0.2);
+        pos_x += 5* speed;
+        pushMatrix();
+        translate(width/2, 400);
+        translate(pos_x, pos_y);
+        robotRight.draw();
+        popMatrix();
         break;
       case LEFT:
-        pos_x -= 10 * speed;
-        robot = new Sprite(app, "robot move left.png", 3, 1, 1);
-        robot.setFrameSequence(0, 1, 0.2);
+        pos_x -= 5 * speed;
+        pushMatrix();
+        translate(width/2, 400);
+        translate(pos_x, pos_y);
+        robotLeft.draw();
+        popMatrix();
         break;
       default:
         break;
       }
     } else {      
-      robot = new Sprite(app, "robot.png", 2, 3, 1);
-      robot.setFrameSequence(4, 4);
+      pushMatrix();
+      translate(width/2, 400);
+      translate(pos_x, pos_y);
+      robotQuiet.draw();
+      popMatrix();
     }
   }
 }
