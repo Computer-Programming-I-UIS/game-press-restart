@@ -23,8 +23,8 @@ void setup() {
   musica = minim.loadFile("grape-leaves.mp3");
   roboto = new Robot(0, 0, "robot.png", "robot move right.png", "robot move left.png", app);
   
-  
-  //musica.play();
+ 
+  musica.play();
 }
 
 void draw() {
@@ -32,8 +32,15 @@ void draw() {
   if (iniciar == 0) { // Ventana del menu
     menu.mostrar();
     iniciar = menu.botonPresionado();
+    if(mousePressed && mouseX > 630 && mouseX < 630+223 && mouseY > 374 && mouseY < 374+77){
+      Salirjuego();
+    }
   } else { // inicia el juego
     fondo.mostrar();
     roboto.controles();
   }
+}
+
+void Salirjuego() {
+  exit();
 }
