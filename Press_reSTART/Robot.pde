@@ -67,7 +67,7 @@ class Robot {
       translate(pos_x, pos_y);
       robotLeft.draw();
       popMatrix();
-    } else if (right && up) { //mover el robot SOLO hacia la derecha  
+    } /*else if (right && up) { //mover el robot SOLO hacia la derecha  
       pos_x += 5* speedx;  
       pos_y -= 5* speedy;
       pushMatrix();
@@ -90,7 +90,7 @@ class Robot {
       translate(pos_x, pos_y);
       robotUpRight.draw();
       popMatrix();
-    } else {
+    }*/ else {
       pushMatrix();
       translate(width/2, 400);
       translate(pos_x, pos_y);
