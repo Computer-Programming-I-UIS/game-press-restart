@@ -1,3 +1,0 @@
-# ¡Press reSTART! 🕹
-
-En proceso...
