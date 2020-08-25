@@ -5,6 +5,7 @@ class Robot {
   float pos_y;
   float speedx = 3;
   float speedy = 4;
+  float gravity= 0.4;
   float floor = 550;
   float salto = 25;
   boolean left = false;
@@ -82,6 +83,13 @@ class Robot {
       translate(pos_x, pos_y);
       robotUpLeft.draw();
       popMatrix();
+    } else if (up) {
+      pos_y -= 5* speedy;
+      pushMatrix();
+      translate(width/2, 400);
+      translate(pos_x, pos_y);
+      robotUpRight.draw();
+      popMatrix();
     } else {
       pushMatrix();
       translate(width/2, 400);
@@ -89,8 +97,5 @@ class Robot {
       robotQuiet.draw();
       popMatrix();
     }
-
-
-
   }
 }
