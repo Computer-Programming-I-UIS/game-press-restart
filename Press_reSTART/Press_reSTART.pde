@@ -24,32 +24,35 @@ void setup() {
   roboto = new Robot(0, 0, "robot.png", "robot move right.png", "robot move left.png", "robot jump left.png", "robot jump right.png", "robot fall left.png", "robot fall right.png", app);
 
 
-  musica.loop();
+  //musica.loop();
 }
 
 void draw() {
 
   if (iniciar == 0) { // Ventana del menu
     menu.mostrar();
-    iniciar = menu.botonPantalladeInicio();
-    if (mousePressed && mouseX > 630 && mouseX < 630+223 && mouseY > 374 && mouseY < 374+77) {
-      Salirjuego();
-    }
-  } else if (iniciar ==1 ) { // inicia el juego
+    iniciar = menu.START();
+    iniciar = menu.EXIT();
+
+  } else if (iniciar == 1 ) { // inicia el juego
     fondo.mostrar();
     roboto.moverse();
+  } 
+  else if (iniciar == 2) {
+    menu.
+        
   }
-  else{
+    
+  else {
     menu.mostrar();
-    iniciar = menu.botonCreditos();   
+   
   }
 }
 
 
 
-void Salirjuego() {
-  exit();
-}
+
+
 
 void creditos() {
   PImage img;
