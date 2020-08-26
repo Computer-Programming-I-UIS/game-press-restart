@@ -8,6 +8,7 @@ class Robot {
   float gravity= 0.4;
   float floor = 550;
   float salto = 25;
+  float gravedad= 2;
   boolean left = false;
   boolean right = false;
   boolean up = false;
@@ -69,6 +70,7 @@ class Robot {
       popMatrix();
     } /*else if (right && up) { //mover el robot SOLO hacia la derecha  
       pos_x += 5* speedx;  
+      speedy += gravedad;
       pos_y -= 5* speedy;
       pushMatrix();
       translate(width/2, 400);
@@ -77,6 +79,7 @@ class Robot {
       popMatrix();
     } else if (left && up) { //mover el robot SOLO hacia la derecha  
       pos_x -= 5* speedx;  
+      speedy += gravedad;
       pos_y -= 5* speedy;
       pushMatrix();
       translate(width/2, 400);
@@ -84,6 +87,8 @@ class Robot {
       robotUpLeft.draw();
       popMatrix();
     } else if (up) {
+      pos_y -= 5* speedy;
+      speedy += gravedad;
       pos_y -= 5* speedy;
       pushMatrix();
       translate(width/2, 400);
