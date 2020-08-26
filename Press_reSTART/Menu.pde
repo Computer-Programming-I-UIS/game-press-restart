@@ -23,10 +23,4 @@ class Menu {
     return 0;
   }
 
-    int botonRestart() {
-      if (mousePressed) {
-        if (mouseX>0 && mouseX<138 && mouseY>0 && mouseY<52) return 0;
-      }
-      return 1;
-    }
-  }
+}

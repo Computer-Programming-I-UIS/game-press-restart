@@ -42,6 +42,7 @@ void draw() {
   if (iniciar == 1 ) { // inicia el juego
     fondo.mostrar();
     roboto.moverse();
+    RESET();
 }
 }
 
@@ -66,11 +67,8 @@ void EXIT() {
   }
 }
 
-void CREDITS() {
-
-  if (mousePressed && mouseX>630  && mouseX<630+223 && mouseY>490  && mouseY<490+77) {
-    PImage img;
-    img = loadImage("creditos.png");
-    image(img, 0, 0);
-  }
+void RESET() {
+    if (mousePressed && mouseX>0 && mouseX<138 && mouseY>0 && mouseY<52){
+      setup();
+    }
 }
