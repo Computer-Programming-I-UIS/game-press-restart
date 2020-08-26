@@ -1,6 +1,12 @@
 # ¡Press reSTART! 🕹
 
+## Descripción 🔻
+
 Este es un juego de puzzles, en donde cometer el más mínimo error significará el tener que reiniciar el juego mientras que ves cómo tu personaje cae en un bug infinito. Los puzzles consistirán en cómo interactúa el personaje con su entorno mediante adivinanzas, siendo que si escoge mal o se demora más tiempo del otorgado, ocurrirá el bug, obligándolo a reiniciar el juego desde cero.
+
+## Objetivo del juego 🔺
+
+Que el usuario desarrolle la capacidad de  tomar desiciones correctas para resolver cada uno de los niveles teniendo en cuenta que el tiempo esta corriendo. La persona debe ser rapida y concisa con la opcion que seleccione de lo contrario recibira su respectiva penalización.  
 
 ## Requisitos  🔧
 
