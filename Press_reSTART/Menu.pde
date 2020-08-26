@@ -22,19 +22,6 @@ class Menu {
     }
     return 0;
   }
-    int CREDITS() {
-    if (mousePressed) {
-      if ( mouseX>boton_x  && mouseX<boton_x+boton_ancho && mouseY>490  && mouseY<490+boton_alto) return 2; 
-      {
-        PImage img;
-        img = loadImage("creditos.png");
-        image(img, 0, 0);
-      }
-    }
-    return 0;
-  }
-
-
 
     int botonRestart() {
       if (mousePressed) {

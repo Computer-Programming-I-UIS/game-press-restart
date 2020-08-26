@@ -24,7 +24,7 @@ void setup() {
   musica = minim.loadFile("grape-leaves.mp3");
   roboto = new Robot(0, 0, "robot.png", "robot move right.png", "robot move left.png", "robot jump left.png", "robot jump right.png", "robot fall left.png", "robot fall right.png", app);
   bits = loadFont("8-BIT WONDER.vlw");
-  musica.loop();
+  //musica.loop();
 }
 
 void draw() {
@@ -32,27 +32,17 @@ void draw() {
   if (iniciar == 0) { // Ventana del menu
     menu.mostrar();
     iniciar = menu.START();
-    EXIT();
-  } else if (iniciar == 1 ) { // inicia el juego
+    if (mousePressed && mouseX>630  && mouseX<630+223 && mouseY>490  && mouseY<490+77) {
+      PImage img;
+      img = loadImage("creditos.png");
+      image(img, 0, 0);
+    }
+  }
+  EXIT();
+  if (iniciar == 1 ) { // inicia el juego
     fondo.mostrar();
     roboto.moverse();
-  } else if (iniciar == 2) {
-    iniciar = menu.CREDITS();
-  }
 }
-
-
-
-
-
-void Salirjuego() {
-  exit();
-}
-
-void creditos() {
-  PImage img;
-  img = loadImage("creditos.png");
-  image(img, 0, 0);
 }
 
 void keyPressed() {
@@ -70,8 +60,17 @@ void keyReleased() {
     if (keyCode == RIGHT) roboto.right = false;
   }
 }
-void EXIT(){
-  if(mousePressed){
-    if ( mouseX>630  && mouseX<630+223 && mouseY>374  && mouseY<374+77) exit();
+void EXIT() {
+  if (mousePressed) {
+    if (mouseX>630  && mouseX<630+223 && mouseY>374  && mouseY<374+77) exit();
+  }
+}
+
+void CREDITS() {
+
+  if (mousePressed && mouseX>630  && mouseX<630+223 && mouseY>490  && mouseY<490+77) {
+    PImage img;
+    img = loadImage("creditos.png");
+    image(img, 0, 0);
   }
 }
