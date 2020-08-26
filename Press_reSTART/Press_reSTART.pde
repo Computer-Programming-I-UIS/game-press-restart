@@ -9,7 +9,7 @@ AudioPlayer musica;
 Fondo fondo;
 Menu menu;
 
-Niveles level;
+//Niveles level;
 
 //Niveles[] level = new Niveles[2];
 int nivel = 1;
@@ -19,20 +19,8 @@ Robot roboto;
 
 PApplet app;
 
-/*void setup() {
-
-
-  String[] lines = loadStrings("data/niveles/"+str(nivel)+"/elementos.txt");
-  println("there are " + lines.length + " lines");
-  for (int i = 0; i < lines.length; i++) {
-    println(lines[i]);
-  }
-}*/
-
-
-
-
 void setup() {
+  PFont.list();
   size(850, 600);
   app = this;
   minim = new Minim(this);
@@ -41,16 +29,19 @@ void setup() {
   musica = minim.loadFile("grape-leaves.mp3");
   roboto = new Robot(0, 0, "robot.png", "robot move right.png", "robot move left.png", "robot jump left.png", "robot jump right.png", "robot fall left.png", "robot fall right.png", app);
   bits = loadFont("8-BIT WONDER.vlw");
-
-  level = new Niveles("Fondo con cuadro.png", "Fondo sin cuadro.png", "piso.png", "zona de meditacion.png");
-
-  //for(nivel = 0; nivel == 2; nivel ++){
-  //level[nivel]= new Niveles("Fondo con cuadro.png", "Fondo sin cuadro.png", "piso.png", "zona de meditacion.png");
-  //}
+  textFont(bits);
   musica.loop();
+  /*Niveles
+  
+  String[] lines = loadStrings("data/niveles/"+str(nivel)+"/elementos.txt");
+  println("there are " + lines.length + " lines");
+  for (int i = 0; i < lines.length; i++) {
+    println(lines[i]);
+  }*/
 }
 
-void _draw() {
+
+void draw() {
 
   if (iniciar == 0) { // Ventana del menu
 
@@ -68,6 +59,10 @@ void _draw() {
     fondo.mostrar();
     roboto.moverse();
     RESET();
+      fill(255);
+  textSize(25);
+  text("BOTON IZQUIERA PARA IR A LA IZQUIERDA", 176, 78);
+  text("BOTON DERECHA PARA IR A LA DERECHA", 176, 108);
   }
 }
 
