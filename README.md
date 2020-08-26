@@ -31,13 +31,13 @@ Tambien al momento de tener el programa en nuestro ordenador necesitamos importa
 
 - EL personaje sera controlado por medio de las flechas del teclado.
 
-- Musica relajante 
+- Musica relajante. 
 
 - Interfaz comoda y sencilla a la vista del usuario.
 
 ## Imagenes del juego 🎮
 
-- Menu de incio
+- Menu de incio.
 
 !["menu"](https://i.ibb.co/6vXCY0F/Nueva-Pantalla-de-inicio.png)
 
@@ -45,12 +45,12 @@ Tambien al momento de tener el programa en nuestro ordenador necesitamos importa
 
 !["menu"](https://i.ibb.co/p0gQcnG/Fondo-con-cuadro.png)
 
-- Personaje
+- Personaje.
 
 !["Personaje"](https://i.ibb.co/gg5Zr40/Robocop12.png)
 !["Personaje"](https://i.ibb.co/XZqfkgQ/Robocop13.png)
 
-- La clave de este juego el boton reset
+- La clave de este juego, el boton de reset.
 
 !["reset"](https://i.ibb.co/zQP4MfF/reset-1.png)
 
