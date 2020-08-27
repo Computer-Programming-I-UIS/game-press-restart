@@ -16,6 +16,8 @@ int nivel = 1;
 int iniciar = 0; //Iniciar con el menu
 int click;
 Robot roboto;
+int s = 0;
+int m = 0;
 
 PApplet app;
 
@@ -32,12 +34,12 @@ void setup() {
   textFont(bits);
   musica.loop();
   /*Niveles
-  
-  String[] lines = loadStrings("data/niveles/"+str(nivel)+"/elementos.txt");
-  println("there are " + lines.length + " lines");
-  for (int i = 0; i < lines.length; i++) {
-    println(lines[i]);
-  }*/
+   
+   String[] lines = loadStrings("data/niveles/"+str(nivel)+"/elementos.txt");
+   println("there are " + lines.length + " lines");
+   for (int i = 0; i < lines.length; i++) {
+   println(lines[i]);
+   }*/
 }
 
 
@@ -59,10 +61,21 @@ void draw() {
     fondo.mostrar();
     roboto.moverse();
     RESET();
-      fill(255);
-  textSize(25);
-  text("USE LAS FLECHAS DE SU TECLADO PARA DESPLAZAR AL ROBOT", 176, 78);
-  text("TANTO A LA IZQUIERDA COMO A LA DERECHA", 176, 108);
+    fill(255);
+    textSize(25);
+    text("USE LAS FLECHAS DE SU TECLADO PARA DESPLAZAR AL ROBOT", 176, 78);
+    text("TANTO A LA IZQUIERDA COMO A LA DERECHA", 176, 108);
+    delay(1000);
+    if (s <= 59) {
+    text(m+":"+s, 780, 35);
+    s++;
+  } else {
+    m++;
+    s = 0;
+    text(m+":"+s, 780, 35);
+  }
+
+   
   }
 }
 

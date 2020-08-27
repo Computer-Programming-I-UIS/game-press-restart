@@ -14,6 +14,8 @@ class Menu {
   //Metodos
   void mostrar() {
     image(menu, 0, 0, width, height);
+   
+    
   }
 
   int START() {
