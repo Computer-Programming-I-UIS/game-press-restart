@@ -9,23 +9,23 @@ AudioPlayer musica;
 Fondo fondo;
 Menu menu;
 
-//Niveles level;
+Niveles level;
 
 //Niveles[] level = new Niveles[2];
 int nivel = 1;
 int iniciar = 0; //Iniciar con el menu
 int click;
 Robot roboto;
-int s = 0;
-int m = 0;
 
 PApplet app;
 
 void setup() {
+//  frameRate(180);
   PFont.list();
   size(850, 600);
   app = this;
   minim = new Minim(this);
+ level = new Niveles(19, 29, 1);
   fondo = new Fondo("Fondo con cuadro.png", "Fondo sin cuadro.png", "piso.png", "zona de meditacion.png");
   menu = new Menu("Pantalla de inicio.png", "creditos.png");
   musica = minim.loadFile("grape-leaves.mp3");
@@ -58,24 +58,16 @@ void draw() {
   }
   EXIT();
   if (iniciar == 1 ) { // inicia el juego
-    fondo.mostrar();
+    fondo.mostrar1();
+    level.nuevonivel();
+    level.RELOJ();
+    level.objetos();
     roboto.moverse();
     RESET();
     fill(255);
     textSize(25);
-    text("USE LAS FLECHAS DE SU TECLADO PARA DESPLAZAR AL ROBOT", 176, 78);
-    text("TANTO A LA IZQUIERDA COMO A LA DERECHA", 176, 108);
-    delay(1000);
-    if (s <= 59) {
-    text(m+":"+s, 780, 35);
-    s++;
-  } else {
-    m++;
-    s = 0;
-    text(m+":"+s, 780, 35);
-  }
-
-   
+    text("BOTON IZQUIERA PARA IR A LA IZQUIERDA", 176, 78);
+    text("BOTON DERECHA PARA IR A LA DERECHA", 176, 108);
   }
 }
 
@@ -86,6 +78,7 @@ void keyPressed() {
   }
   if (key == CODED) {
     if (keyCode == UP)roboto.up = true;
+    roboto.gravity = -roboto.gravity;
     if (keyCode == LEFT) roboto.left = true;
     if (keyCode == RIGHT) roboto.right = true;
   }
@@ -102,12 +95,7 @@ void mouseClicked() {
 
   if (iniciar == 0) {  // está en el menú
     if (click == 0) {  // NO ha hecho click
-      if ( mouseX>630  && mouseX<630+223 && mouseY>490  && mouseY<490+77 ) {
-        //PImage img;
-        //img = loadImage("creditos.png");
-        //image(img, 0, 0);
-        click = 1;
-      }
+      if ( mouseX>630  && mouseX<630+223 && mouseY>490  && mouseY<490+77 )  click = 1;
     }
   }
 }

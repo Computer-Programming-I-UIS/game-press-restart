@@ -14,11 +14,19 @@ class Fondo {
   }
 
   //Metodos
-  void mostrar() {
+  void mostrar1() {
     imageMode(CENTER);
     image(escenario1, width/2, height/2);
-    //image(escenario2, width/2, height/2);
-    //image(zona, width/2, height/2);
+    //image(piso, width/2, 750);
+  }
+
+  void mostrar2() {
+    imageMode(CENTER);
+    image(escenario2, width/2, height/2);
     image(piso, width/2, 750);
+  }
+  void mostrar3() {
+    imageMode(CENTER);
+    image(zona, width/2, height/2);
   }
 }

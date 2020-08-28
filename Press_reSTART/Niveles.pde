@@ -1,5 +1,6 @@
-/*class Niveles {
+class Niveles {
   //  Atributos
+  PImage piso;
   int columnas;
   int filas;
   char[][] objetos;
@@ -7,41 +8,42 @@
   int nivel;
   boolean nivelsincargar = true;
 
-  int[][]pos_muros;
+  int[][]pos_suelo;
   int tamanoCosas = 60;
   int numElemInt = 0;
 
-  Niveles(int nfilas, int ncolumnas, int, Nnivel) {
+  Niveles(int nfilas, int ncolumnas, int Nnivel) {
     columnas = ncolumnas;
     filas = nfilas;
     objetos = new char[columnas][filas];
     nivel = Nnivel;
+    piso = loadImage("piso sprite.png");
   }
 
   void nuevonivel() {
-    if (nivelnuevo) {
-      archivoObjetos = "data/niveles/" +str(nivel)+"/elementos.txt";
+    if (nivelsincargar) {
+      archivoObjetos = "data/niveles/1/elementos.txt";
       leerObjetos();
-      printl("Iniciar");
+      println("Iniciar");
       nivelsincargar = false;
     }
-    for (int n = 0; n < rows; n++) {
-      for (int m = 0; m < cols; m++) {
+    for (int n = 0; n < filas; n++) {
+      for (int m = 0; m < columnas; m++) {
         if (objetos[m][n] != ' ') {
           numElemInt ++;
         }
       }
     }
     
-    pos_interacciones = new int[2][numElemInt];
+    pos_suelo = new int[2][numElemInt];
 
     numElemInt = 0;
     //
     for (int n = 0; n < filas; n++) {
       for (int m = 0; m < columnas; m++) {
         if (objetos[m][n] != ' ') {
-          pos_muros[0][numElemInt] = (m*60);
-          pos_muros[1][numElemInt] = (n*60);
+          pos_suelo[0][numElemInt] = (m*32);
+          pos_suelo[1][numElemInt] = (n*32);
           numElemInt ++;
         }
       }
@@ -55,16 +57,17 @@
   void leerObjetos(){
      String[] line = loadStrings(archivoObjetos);
     println("there are " + line.length + " lines");
+    println("there are" + columnas +" cols");
     for (int n = 0; n < line.length; n++) {
       println(line[n]);
-      for (int m = 0; m < 44; m++) {
+      for (int m = 0; m < 25; m++) {
         objetos[m][n] = line[n].charAt(m);
       }
     }
     
     println("Esta es la matriz de la información:");
     for (int n = 0; n < line.length; n++) {
-      for (int m = 0; m < 44; m++) {
+      for (int m = 0; m < 25; m++) {
         print(objetos[m][n]);
       }
       println("");
@@ -72,55 +75,30 @@
   }
   void objetos() { // imprime los objetos con los que interacciona
 
-    for (int n = 0; n < rows; n++) {
-      for (int m = 0; m < cols; m++) {
+    for (int n = 0; n < filas; n++) {
+      for (int m = 0; m < columnas; m++) {
         // imprime el suelo
         if (objetos[m][n] == '#') { 
-          copy(tileset, 60, 150, 60, 60, (m*60), (n*60), 60, 60);
+          copy(piso, 0, 0, width, height, (m*32), (n*32), 200, 200);
         }
         if (objetos[m][n] == '_') { 
-          copy(tileset, 60, 150, 60, 60, (m*60), (n*60), 60, 60);
+          copy(piso, 0, 0, width, height, (m*32), (n*32), 200, 200);
         }
       }
     }
   }
-      
-    
-    
+          
+    int m = 0;
+    int s1 = millis(), s2 = millis();
 
-
-
-
-    int nivel=0;
-    int temporizador_ms =10000;
-    int contador1 = millis(), contador2 = millis();
-
-    Niveles(String nombreEscenario1, String nombreEscenario2, String nombrePiso, String zonaMeditacion) {
-      super(nombreEscenario1, nombreEscenario2, nombrePiso, zonaMeditacion);
-    }
-    void cronometro() {
-      textSize(15);
-      fill(255);
-      text(contador1/1000, 730, 44);
-      if (contador2/1000>temporizador_ms) {
-      }
-      contador2 = millis();
-    }
-    void nivel() {
-      if (nivel == 0) {
-        if (roboto.pos_x<-69 && roboto.pos_x> 919) {
-          nivel++;
-        }
-      }
-    }
-    void nivel2() {
-      if (nivel == 1);
-      textSize(20);
-      text("ESTAS MEDIO FLACO...", 176, 108); 
-      if (roboto.pos_x<69/2 && roboto.pos_x>850+69/2) {
-        nivel++;
-      }
-    }
+    void RELOJ(){
+    text(m+":"+s1/1000, 780, 35);
+    if(s1>59000){
+    m++;
+    s1 = millis();
+    text(m+":"+(s1/1000), 780, 35);
+  }
+}
 
     void verificarInteracciones() {
     }
@@ -128,8 +106,6 @@
     void pistas() {
     }
 
-    void pedro() {
+    void victoria() {
     }
   }
-
- */

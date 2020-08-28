@@ -2,9 +2,10 @@ class Robot {
   //Atributos
   PImage move;
   float speedx = 3;
-  float speedy = 4;
-  float gravity= 0.4;
+  float speedy;
+  float gravity;
   float floor = 400;
+  float roof = 78;
   float salto = 25;
   float pos_x;
   float pos_y;
@@ -48,10 +49,19 @@ class Robot {
     move = loadImage("robot.png");
   }
   void moverse() {
-
+  /*  if(keyPressed && keyCode ==UP && pos_y == floor-roof){
+        speedy = -10;
+        gravity = 0.5;
+    }
+    pos_y += speedy;
+    speedy += gravity;
+    if(pos_y >floor - roof){
+      speedy = 0;
+      gravity = 0;
+    }*/
     float elapsedTime = (float) sw.getElapsedTime();
     S4P.updateSprites(elapsedTime);
-
+    
     if (right && !up) { //mover el robot SOLO hacia la derecha  
       pos_x += 5* speedx;
       pushMatrix();
@@ -66,35 +76,33 @@ class Robot {
       translate(pos_x, pos_y);
       robotLeft.draw();
       popMatrix();
-    }/* else if (right && up) { //mover el robot SOLO hacia la derecha  
+    }/*else if (right && up) { //mover el robot SOLO hacia la derecha  
      pos_x += 5* speedx;  
-     speedy += gravedad;
-     pos_y -=  speedy;
+     pos_y += speedy;
+     speedy += gravity;
      pushMatrix();
      translate(width/2, 400);
      translate(pos_x, pos_y);
      robotUpRight.draw();
      popMatrix();
      } else if (left && up) { //mover el robot SOLO hacia la derecha  
-     pos_x -= 5* speedx;  
-     speedy += gravedad;
-     pos_y -= 5* speedy;
+     pos_x -= 5* speedx;
+     pos_y += speedy;
+     speedy += gravity;
      pushMatrix();
      translate(width/2, 400);
      translate(pos_x, pos_y);
      robotUpLeft.draw();
      popMatrix();
      } else if (up) {
-     pos_y -= 5* speedy;
-     speedy += gravedad;
-     pos_y -= 5* speedy;
+     pos_y += speedy;
+     speedy += gravity;  
      pushMatrix();
      translate(width/2, 400);
      translate(pos_x, pos_y);
      robotUpRight.draw();
      popMatrix();
-     } */
-    else {
+     }*/else {
       pushMatrix();
       translate(width/2, 400);
       translate(pos_x, pos_y);
