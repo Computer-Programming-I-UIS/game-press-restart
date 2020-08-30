@@ -4,9 +4,7 @@ class Robot {
   float speedx = 3;
   float speedy;
   float gravity;
-  float floor = 400;
-  float roof = 78;
-  float salto = 25;
+  float roof = -78;
   float pos_x;
   float pos_y;
   boolean left = false;
@@ -49,14 +47,14 @@ class Robot {
     move = loadImage("robot.png");
   }
   void moverse() {
-    if (keyPressed && keyCode ==UP && pos_y < roof) {
+    if (keyPressed && keyCode ==UP && pos_y > roof) {
       speedy = -10;
       gravity = 0.5;
     }
     pos_y += speedy;
     speedy += gravity;
     text(speedy,700, 600);
-    if (pos_y > 0) {
+    if (pos_y >level.m) {
       speedy = 0;
       gravity = 0;
     }
