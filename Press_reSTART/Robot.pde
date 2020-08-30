@@ -49,19 +49,20 @@ class Robot {
     move = loadImage("robot.png");
   }
   void moverse() {
-  /*  if(keyPressed && keyCode ==UP && pos_y == floor-roof){
-        speedy = -10;
-        gravity = 0.5;
+    if (keyPressed && keyCode ==UP && pos_y < roof) {
+      speedy = -10;
+      gravity = 0.5;
     }
     pos_y += speedy;
     speedy += gravity;
-    if(pos_y >floor - roof){
+    text(speedy,700, 600);
+    if (pos_y > 0) {
       speedy = 0;
       gravity = 0;
-    }*/
+    }
     float elapsedTime = (float) sw.getElapsedTime();
     S4P.updateSprites(elapsedTime);
-    
+
     if (right && !up) { //mover el robot SOLO hacia la derecha  
       pos_x += 5* speedx;
       pushMatrix();
@@ -76,33 +77,27 @@ class Robot {
       translate(pos_x, pos_y);
       robotLeft.draw();
       popMatrix();
-    }/*else if (right && up) { //mover el robot SOLO hacia la derecha  
-     pos_x += 5* speedx;  
-     pos_y += speedy;
-     speedy += gravity;
-     pushMatrix();
-     translate(width/2, 400);
-     translate(pos_x, pos_y);
-     robotUpRight.draw();
-     popMatrix();
-     } else if (left && up) { //mover el robot SOLO hacia la derecha  
-     pos_x -= 5* speedx;
-     pos_y += speedy;
-     speedy += gravity;
-     pushMatrix();
-     translate(width/2, 400);
-     translate(pos_x, pos_y);
-     robotUpLeft.draw();
-     popMatrix();
-     } else if (up) {
-     pos_y += speedy;
-     speedy += gravity;  
-     pushMatrix();
-     translate(width/2, 400);
-     translate(pos_x, pos_y);
-     robotUpRight.draw();
-     popMatrix();
-     }*/else {
+    } else if (right && up) { //mover el robot SOLO hacia la derecha  
+      pos_x += 5* speedx;  
+      pushMatrix();
+      translate(width/2, 400);
+      translate(pos_x, pos_y);
+      robotUpRight.draw();
+      popMatrix();
+    } else if (left && up) { //mover el robot SOLO hacia la derecha  
+      pos_x -= 5* speedx;
+      pushMatrix();
+      translate(width/2, 400);
+      translate(pos_x, pos_y);
+      robotUpLeft.draw();
+      popMatrix();
+    } else if (up) {
+      pushMatrix();
+      translate(width/2, 400);
+      translate(pos_x, pos_y);
+      robotUpRight.draw();
+      popMatrix();
+    } else {
       pushMatrix();
       translate(width/2, 400);
       translate(pos_x, pos_y);

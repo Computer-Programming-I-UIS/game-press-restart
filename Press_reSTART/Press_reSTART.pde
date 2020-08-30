@@ -32,7 +32,7 @@ void setup() {
   roboto = new Robot(0, 0, "robot.png", "robot move right.png", "robot move left.png", "robot jump left.png", "robot jump right.png", "robot fall left.png", "robot fall right.png", app);
   bits = loadFont("8-BIT WONDER.vlw");
   textFont(bits);
-  musica.loop();
+  //musica.loop();
   /*Niveles
    
    String[] lines = loadStrings("data/niveles/"+str(nivel)+"/elementos.txt");
@@ -60,7 +60,7 @@ void draw() {
   if (iniciar == 1 ) { // inicia el juego
     fondo.mostrar1();
     level.nuevonivel();
-    level.RELOJ();
+    //level.RELOJ();
     level.objetos();
     roboto.moverse();
     RESET();
@@ -78,7 +78,6 @@ void keyPressed() {
   }
   if (key == CODED) {
     if (keyCode == UP)roboto.up = true;
-    roboto.gravity = -roboto.gravity;
     if (keyCode == LEFT) roboto.left = true;
     if (keyCode == RIGHT) roboto.right = true;
   }
@@ -97,17 +96,5 @@ void mouseClicked() {
     if (click == 0) {  // NO ha hecho click
       if ( mouseX>630  && mouseX<630+223 && mouseY>490  && mouseY<490+77 )  click = 1;
     }
-  }
-}
-void EXIT() {
-  if (mousePressed) {
-    if (mouseX>630  && mouseX<630+223 && mouseY>374  && mouseY<374+77) exit();
-  }
-}
-
-void RESET() {
-  if (mousePressed && mouseX>0 && mouseX<138 && mouseY>0 && mouseY<52) {
-    setup();
-    musica.pause();
   }
 }

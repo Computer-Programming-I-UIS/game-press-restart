@@ -34,7 +34,7 @@ class Niveles {
         }
       }
     }
-    
+
     pos_suelo = new int[2][numElemInt];
 
     numElemInt = 0;
@@ -49,13 +49,13 @@ class Niveles {
       }
     }
   }
-  void cambioNivel(int nuevoNivel){
+  void cambioNivel(int nuevoNivel) {
     nivel= nuevoNivel;
     nivelsincargar = true;
     numElemInt= 0;
   }
-  void leerObjetos(){
-     String[] line = loadStrings(archivoObjetos);
+  void leerObjetos() {
+    String[] line = loadStrings(archivoObjetos);
     println("there are " + line.length + " lines");
     println("there are" + columnas +" cols");
     for (int n = 0; n < line.length; n++) {
@@ -64,7 +64,7 @@ class Niveles {
         objetos[m][n] = line[n].charAt(m);
       }
     }
-    
+
     println("Esta es la matriz de la información:");
     for (int n = 0; n < line.length; n++) {
       for (int m = 0; m < 25; m++) {
@@ -87,25 +87,24 @@ class Niveles {
       }
     }
   }
-          
-    int m = 0;
-    int s1 = millis(), s2 = millis();
 
-    void RELOJ(){
+  int m = 0;
+  int s1 = millis(), s2 = millis();
+
+  /*void RELOJ() {
     text(m+":"+s1/1000, 780, 35);
-    if(s1>59000){
-    m++;
-    s1 = millis();
-    text(m+":"+(s1/1000), 780, 35);
+    if (s1>59000) {
+      m++;
+      s1 = millis();
+    }
+  }*/
+
+  void verificarInteracciones() {
+  }
+
+  void pistas() {
+  }
+
+  void victoria() {
   }
 }
-
-    void verificarInteracciones() {
-    }
-
-    void pistas() {
-    }
-
-    void victoria() {
-    }
-  }
