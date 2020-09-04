@@ -14,8 +14,6 @@ class Menu {
   //Metodos
   void mostrar() {
     image(menu, 0, 0, width, height);
-   
-    
   }
 
   int START() {
@@ -25,4 +23,11 @@ class Menu {
     return 0;
   }
 
+  int JUEGO() {
+    if( mousePressed) {
+      if ( mouseX>boton_x  && mouseX<boton_x+boton_ancho && mouseY>255  && mouseY<255+boton_alto ) return 2;
+    }
+        println("yolo");
+    return 1;
+  }
 }

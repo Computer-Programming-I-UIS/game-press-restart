@@ -11,10 +11,9 @@ Menu menu;
 
 Niveles level;
 
-//Niveles[] level = new Niveles[2];
 int nivel = 1;
 int iniciar = 0; //Iniciar con el menu
-int click;
+int click; //confirmador 
 Robot roboto;
 
 PApplet app;
@@ -32,7 +31,7 @@ void setup() {
   roboto = new Robot(0, 0, "robot.png", "robot move right.png", "robot move left.png", "robot jump left.png", "robot jump right.png", "robot fall left.png", "robot fall right.png", app);
   bits = loadFont("8-BIT WONDER.vlw");
   textFont(bits);
-  //musica.loop();
+  musica.loop();
   /*Niveles
    
    String[] lines = loadStrings("data/niveles/"+str(nivel)+"/elementos.txt");
@@ -56,8 +55,12 @@ void draw() {
       iniciar = menu.START();
     }
   }
+  if(iniciar == 1){
+    fondo.mostrar3();
+    iniciar = menu.JUEGO();
+  }
   EXIT();
-  if (iniciar == 1 ) { // inicia el juego
+  if (iniciar == 2 ) { // inicia el juego
     fondo.mostrar1();
     level.nuevonivel();
     //level.RELOJ();

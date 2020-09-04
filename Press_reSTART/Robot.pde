@@ -54,7 +54,7 @@ class Robot {
     pos_y += speedy;
     speedy += gravity;
     text(speedy,700, 600);
-    if (pos_y >level.m) {
+    if (pos_y >level.m*30) {
       speedy = 0;
       gravity = 0;
     }
