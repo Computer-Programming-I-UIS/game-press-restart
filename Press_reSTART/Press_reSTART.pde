@@ -11,6 +11,7 @@ Menu menu;
 
 Niveles level;
 
+int t1, t2, cronometro=10000;
 int nivel = 1;
 int iniciar = 0; //Iniciar con el menu
 int click; //confirmador 
@@ -53,17 +54,17 @@ void draw() {
     } else {
       menu.mostrar();
       iniciar = menu.START();
+      EXIT();
     }
   }
   if(iniciar == 1){
     fondo.mostrar3();
     iniciar = menu.JUEGO();
   }
-  EXIT();
   if (iniciar == 2 ) { // inicia el juego
     fondo.mostrar1();
     level.nuevonivel();
-    //level.RELOJ();
+    RELOJ();
     level.objetos();
     roboto.moverse();
     RESET();
@@ -100,4 +101,10 @@ void mouseClicked() {
       if ( mouseX>630  && mouseX<630+223 && mouseY>490  && mouseY<490+77 )  click = 1;
     }
   }
+}
+
+void RELOJ(){
+  t1= millis();
+  t2= millis();
+   text(t2/1000, 780, 35);
 }

@@ -11,6 +11,7 @@ class Robot {
   boolean right = false;
   boolean up = false;
 
+
   Sprite robotUpLeft;
   Sprite robotLeft;
   Sprite robotDownLeft;
@@ -53,10 +54,19 @@ class Robot {
     }
     pos_y += speedy;
     speedy += gravity;
-    text(speedy,700, 600);
-    if (pos_y >level.nuevonivel()) {
+    text(speedy, 700, 600);
+    if (level.objetoAbajo == true ) {
       speedy = 0;
       gravity = 0;
+    }
+    if (level.objetoArriba == true ) {
+      speedy = 0;
+    }
+    if (level.objetoIzquierda == true ) {
+      speedx = 0;
+    }
+    if (level.objetoDerecha == true ) {
+      speedx = 0;
     }
     float elapsedTime = (float) sw.getElapsedTime();
     S4P.updateSprites(elapsedTime);
@@ -102,40 +112,5 @@ class Robot {
       robotQuiet.draw();
       popMatrix();
     }
-  }
-   void verificarObstaculos(int[][] obstaculos, int numElemInt) {
-    int cnt = 0;
-    int cnt2 = 0;
-    int cnt3 = 0;
-    int cnt4 = 0;
-
-    for (int n = 0; n < numElemInt; n++) {
-      if (obstaculos[0][n] < px +32 && obstaculos[0][n] + 30 > px && obstaculos[1][n] > py && obstaculos[1][n] < py+48+vel) { // deteccion de elementos abajo
-        cnt ++;
-      } 
-      if (obstaculos[0][n] < px +32 && obstaculos[0][n] + 30 > px && obstaculos[1][n] + 30 < py+48 && obstaculos[1][n] + 30 > py+36-vel) { // deteccion de elementos arriba
-        cnt2 ++;
-      }
-    }
-    for (int m = 0; m < numElemInt; m++) {
-      if (obstaculos[0][m] < px+32+vel && obstaculos[0][m] + 30 > px+32+vel && obstaculos[1][m] +48 > py+44 && obstaculos[1][m] < py+48) {// deteccion de elementos derecha
-        cnt3 ++;
-      } 
-      if (obstaculos[0][m] + 30 > px-vel && obstaculos[0][m] < px-vel && obstaculos[1][m] + 48 > py+44 && obstaculos[1][m] < py+48) {// deteccion de elementos izquierda
-        cnt4 ++;
-      }
-    }
-
-    if (cnt >0) objetoAbajo = true;
-    else objetoAbajo = false;
-
-    if (cnt2 >0) objetoArriba = true;
-    else objetoArriba = false;
-
-    if (cnt3 >0) objetoDerecha = true;
-    else objetoDerecha = false;
-
-    if (cnt4 >0) objetoIzquierda = true;
-    else objetoIzquierda = false;
   }
 }

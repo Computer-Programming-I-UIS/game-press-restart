@@ -11,6 +11,11 @@ class Niveles {
   int[][]pos_suelo;
   int tamanoCosas = 60;
   int numElemInt = 0;
+  int[][] obstaculos;
+  boolean objetoArriba = false;
+  boolean objetoAbajo = false;
+  boolean objetoIzquierda = false;
+  boolean objetoDerecha = false;
 
   Niveles(int nfilas, int ncolumnas, int Nnivel) {
     columnas = ncolumnas;
@@ -88,23 +93,45 @@ class Niveles {
     }
   }
 
-  int m = 0;
-  int s1 = millis(), s2 = millis();
 
-  /*void RELOJ() {
-    text(m+":"+s1/1000, 780, 35);
-    if (s1>59000) {
-      m++;
-      s1 = millis();
+  void verificarObstaculos(int[][] obstaculos, int numElemInt) {
+    int cnt = 0;
+    int cnt2 = 0;
+    int cnt3 = 0;
+    int cnt4 = 0;
+    for (int n = 0; n < numElemInt; n++) {
+      if (obstaculos[0][n] < roboto.pos_x +32 && obstaculos[0][n] + 30 > roboto.pos_x && obstaculos[1][n] > roboto.pos_y && obstaculos[1][n] < roboto.pos_y+48+roboto.speedy) { // deteccion de elementos abajo
+        cnt ++;
+      } 
+      if (obstaculos[0][n] < roboto.pos_x +32 && obstaculos[0][n] + 30 > roboto.pos_x && obstaculos[1][n] + 30 < roboto.pos_y+48 && obstaculos[1][n] + 30 > roboto.pos_y+36-roboto.speedy) { // deteccion de elementos arriba
+        cnt2 ++;
+      }
     }
-  }*/
+    for (int m = 0; m < numElemInt; m++) {
+      if (obstaculos[0][m] < roboto.pos_x+32+roboto.speedx && obstaculos[0][m] + 30 > roboto.pos_x+32+roboto.speedx && obstaculos[1][m] +48 > roboto.pos_y+44 && obstaculos[1][m] < roboto.pos_y+48) {// deteccion de elementos derecha
+        cnt3 ++;
+      } 
+      if (obstaculos[0][m] + 30 > roboto.pos_x-roboto.speedx && obstaculos[0][m] < roboto.pos_x-roboto.speedx && obstaculos[1][m] + 48 > roboto.pos_y+44 && obstaculos[1][m] < roboto.pos_y+48) {// deteccion de elementos izquierda
+        cnt4 ++;
+      }
+    }
 
-  void verificarInteracciones() {
-  }
+    if (cnt >0) objetoAbajo = true;
+    else objetoAbajo = false;
 
-  void pistas() {
-  }
+    if (cnt2 >0) objetoArriba = true;
+    else objetoArriba = false;
 
-  void victoria() {
+    if (cnt3 >0) objetoDerecha = true;
+    else objetoDerecha = false;
+
+    if (cnt4 >0) objetoIzquierda = true;
+    else objetoIzquierda = false;
   }
+}
+
+void pistas() {
+}
+
+void victoria() {
 }
