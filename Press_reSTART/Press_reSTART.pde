@@ -27,7 +27,7 @@ void setup() {
   app = this;
   minim = new Minim(this);
   level = new Niveles(19, 29, 1);
-  fondo = new Fondo("Fondo 1.png", "Fondo 2.png", "Fondo 3.png", "piso.png", "Pantalla de espera.png");
+  fondo = new Fondo("Fondo2.png", "Fondo1.png", "piso.png", "Pantalla de espera.png");
   menu = new Menu("Pantalla de inicio.png", "creditos.png");
   musica = minim.loadFile("grape-leaves.mp3");
   juego = minim.loadFile("Gone.mp3");
