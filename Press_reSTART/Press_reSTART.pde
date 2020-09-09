@@ -20,13 +20,13 @@ Robot roboto;
 PApplet app;
 
 void setup() {
-//  frameRate(180);
+  //  frameRate(180);
   PFont.list();
   size(850, 600);
   app = this;
   minim = new Minim(this);
- level = new Niveles(19, 29, 1);
-  fondo = new Fondo("Fondo con cuadro.png", "Fondo sin cuadro.png", "piso.png", "zona de meditacion.png");
+  level = new Niveles(19, 29, 1);
+  fondo = new Fondo("Fondo con cuadro.png", "Fondo sin cuadro.png", "piso.png", "Pantalla de espera.png");
   menu = new Menu("Pantalla de inicio.png", "creditos.png");
   musica = minim.loadFile("grape-leaves.mp3");
   roboto = new Robot(0, 0, "robot.png", "robot move right.png", "robot move left.png", "robot jump left.png", "robot jump right.png", "robot fall left.png", "robot fall right.png", app);
@@ -56,8 +56,9 @@ void draw() {
       iniciar = menu.START();
       EXIT();
     }
+    t1= millis();
   }
-  if(iniciar == 1){
+  if (iniciar == 1) {
     fondo.mostrar3();
     iniciar = menu.JUEGO();
   }
@@ -103,8 +104,8 @@ void mouseClicked() {
   }
 }
 
-void RELOJ(){
-  t1= millis();
+void RELOJ() {
   t2= millis();
-   text(t2/1000, 780, 35);
+  text((t2-t1)/1000, 780, 35);
+  t2= millis();
 }
