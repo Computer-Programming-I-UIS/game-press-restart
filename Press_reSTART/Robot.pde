@@ -3,10 +3,10 @@ class Robot {
   PImage move;
   float speedx = 3;
   float speedy;
-  float gravity;
-  float roof = -78;
-  float pos_x;
-  float pos_y;
+  float gravity = 0.5;
+  float roof = -7800;
+  float pos_x, pos2_x;
+  float pos_y, pos2_y;
   boolean left = false;
   boolean right = false;
   boolean up = false;
@@ -25,6 +25,8 @@ class Robot {
   Robot(float posx, float posy, String fileNameQuiet, String fileNameRight, String fileNameLeft, String fileNameUpLeft, String fileNameUpRight, String fileNameDownLeft, String fileNameDownRight, PApplet app) {
     pos_x = posx;
     pos_y = posy;
+    pos2_x = pos_x+width/2;
+    pos2_y = pos_y+400;
     sw = new StopWatch();
     robotLeft = new Sprite(app, fileNameLeft, 3, 1, 1);
     robotRight = new Sprite(app, fileNameRight, 3, 1, 1);
@@ -48,18 +50,21 @@ class Robot {
     move = loadImage("robot.png");
   }
   void moverse() {
-    if (keyPressed && keyCode ==UP && pos_y > roof) {
+    //Posiciones reales del jugador (las que se muestran en pantalla)
+    pos2_x = pos_x+width/2;
+    pos2_y = pos_y+400;
+
+    rect(pos_x, pos_y, 20, 20);
+    if (keyPressed && keyCode ==UP && pos_y > 0) {
       speedy = -10;
-      gravity = 0.5;
     }
     pos_y += speedy;
     speedy += gravity;
-    text(speedy, 700, 600);
-    if (level.objetoAbajo == true ) {
+
+    if (level.objetoAbajo == true && speedy >= 0) {
       speedy = 0;
-      gravity = 0;
     }
-    if (level.objetoArriba == true ) {
+    if (level.objetoArriba == true && speedy < 0) {
       speedy = 0;
     }
     if (level.objetoIzquierda == true ) {

@@ -32,7 +32,7 @@ void setup() {
   roboto = new Robot(0, 0, "robot.png", "robot move right.png", "robot move left.png", "robot jump left.png", "robot jump right.png", "robot fall left.png", "robot fall right.png", app);
   bits = loadFont("8-BIT WONDER.vlw");
   textFont(bits);
-  musica.loop();
+  //musica.loop();
   /*Niveles
    
    String[] lines = loadStrings("data/niveles/"+str(nivel)+"/elementos.txt");
@@ -65,6 +65,8 @@ void draw() {
   if (iniciar == 2 ) { // inicia el juego
     fondo.mostrar1();
     level.nuevonivel();
+
+    level.verificarObstaculos();
     RELOJ();
     level.objetos();
     roboto.moverse();
@@ -74,6 +76,8 @@ void draw() {
     text("BOTON IZQUIERA PARA IR A LA IZQUIERDA", 176, 78);
     text("BOTON DERECHA PARA IR A LA DERECHA", 176, 108);
   }
+  rect(roboto.pos2_x, roboto.pos2_y,20,20);
+  rect(roboto.pos_x, roboto.pos_y,20,20);
 }
 
 

@@ -93,40 +93,27 @@ class Niveles {
     }
   }
 
-
-  void verificarObstaculos(int[][] obstaculos, int numElemInt) {
-    int cnt = 0;
-    int cnt2 = 0;
-    int cnt3 = 0;
-    int cnt4 = 0;
-    for (int n = 0; n < numElemInt; n++) {
-      if (obstaculos[0][n] < roboto.pos_x +32 && obstaculos[0][n] + 30 > roboto.pos_x && obstaculos[1][n] > roboto.pos_y && obstaculos[1][n] < roboto.pos_y+48+roboto.speedy) { // deteccion de elementos abajo
-        cnt ++;
+  void verificarObstaculos() {
+    objetoArriba = false;
+    objetoAbajo = false;
+    objetoIzquierda = false;
+    objetoDerecha = false;
+    for (int n = 0; n < numElemInt-1; n++) {
+      if(roboto.pos2_x <= pos_suelo[0][n] && roboto.pos2_x +30 > pos_suelo[0][n] && roboto.pos2_y -120 < pos_suelo[1][n] && roboto.pos2_y+60  > pos_suelo[1][n]) { // deteccion de elementos abajo
+        objetoAbajo = true;
       } 
-      if (obstaculos[0][n] < roboto.pos_x +32 && obstaculos[0][n] + 30 > roboto.pos_x && obstaculos[1][n] + 30 < roboto.pos_y+48 && obstaculos[1][n] + 30 > roboto.pos_y+36-roboto.speedy) { // deteccion de elementos arriba
-        cnt2 ++;
+      if (pos_suelo[0][n] < roboto.pos_x +32 && pos_suelo[0][n] + 30 > roboto.pos_x && pos_suelo[1][n] + 30 < roboto.pos_y+48 && pos_suelo[1][n] + 30 > roboto.pos_y+36-roboto.speedy) { // deteccion de elementos arriba
+        objetoArriba = true;
       }
     }
     for (int m = 0; m < numElemInt; m++) {
-      if (obstaculos[0][m] < roboto.pos_x+32+roboto.speedx && obstaculos[0][m] + 30 > roboto.pos_x+32+roboto.speedx && obstaculos[1][m] +48 > roboto.pos_y+44 && obstaculos[1][m] < roboto.pos_y+48) {// deteccion de elementos derecha
-        cnt3 ++;
+      if (pos_suelo[0][m] < roboto.pos_x+32+roboto.speedx && pos_suelo[0][m] + 30 > roboto.pos_x+32+roboto.speedx && pos_suelo[1][m] +48 > roboto.pos_y+44 && pos_suelo[1][m] < roboto.pos_y+48) {// deteccion de elementos derecha
+        objetoDerecha = true;
       } 
-      if (obstaculos[0][m] + 30 > roboto.pos_x-roboto.speedx && obstaculos[0][m] < roboto.pos_x-roboto.speedx && obstaculos[1][m] + 48 > roboto.pos_y+44 && obstaculos[1][m] < roboto.pos_y+48) {// deteccion de elementos izquierda
-        cnt4 ++;
+      if (pos_suelo[0][m] + 30 > roboto.pos_x-roboto.speedx && pos_suelo[0][m] < roboto.pos_x-roboto.speedx && pos_suelo[1][m] + 48 > roboto.pos_y+44 && pos_suelo[1][m] < roboto.pos_y+48) {// deteccion de elementos izquierda
+        objetoIzquierda = true;
       }
     }
-
-    if (cnt >0) objetoAbajo = true;
-    else objetoAbajo = false;
-
-    if (cnt2 >0) objetoArriba = true;
-    else objetoArriba = false;
-
-    if (cnt3 >0) objetoDerecha = true;
-    else objetoDerecha = false;
-
-    if (cnt4 >0) objetoIzquierda = true;
-    else objetoIzquierda = false;
   }
 }
 
