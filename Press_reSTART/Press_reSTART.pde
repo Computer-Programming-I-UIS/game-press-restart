@@ -6,6 +6,7 @@ import sprites.utils.*;
 PFont bits;
 Minim minim;
 AudioPlayer musica;
+AudioPlayer juego;
 Fondo fondo;
 Menu menu;
 
@@ -26,27 +27,23 @@ void setup() {
   app = this;
   minim = new Minim(this);
   level = new Niveles(19, 29, 1);
-  fondo = new Fondo("Fondo con cuadro.png", "Fondo sin cuadro.png", "piso.png", "Pantalla de espera.png");
+  fondo = new Fondo("Fondo 1.png", "Fondo 2.png", "Fondo 3.png", "piso.png", "Pantalla de espera.png");
   menu = new Menu("Pantalla de inicio.png", "creditos.png");
   musica = minim.loadFile("grape-leaves.mp3");
+  juego = minim.loadFile("Gone.mp3");
   roboto = new Robot(0, 0, "robot.png", "robot move right.png", "robot move left.png", "robot jump left.png", "robot jump right.png", "robot fall left.png", "robot fall right.png", app);
   bits = loadFont("8-BIT WONDER.vlw");
   textFont(bits);
-  //musica.loop();
-  /*Niveles
-   
-   String[] lines = loadStrings("data/niveles/"+str(nivel)+"/elementos.txt");
-   println("there are " + lines.length + " lines");
-   for (int i = 0; i < lines.length; i++) {
-   println(lines[i]);
-   }*/
+  musica.loop();
+  juego.loop();
 }
 
 
 void draw() {
 
   if (iniciar == 0) { // Ventana del menu
-
+    musica.play();
+    juego.pause();
     if ( click == 1 ) { // estoy en creditos
       PImage img;
       img = loadImage("creditos.png");
@@ -63,6 +60,8 @@ void draw() {
     iniciar = menu.JUEGO();
   }
   if (iniciar == 2 ) { // inicia el juego
+    juego.play();
+    musica.pause();
     fondo.mostrar1();
     level.nuevonivel();
 
@@ -76,8 +75,6 @@ void draw() {
     text("BOTON IZQUIERA PARA IR A LA IZQUIERDA", 176, 78);
     text("BOTON DERECHA PARA IR A LA DERECHA", 176, 108);
   }
-  rect(roboto.pos2_x, roboto.pos2_y,20,20);
-  rect(roboto.pos_x, roboto.pos_y,20,20);
 }
 
 

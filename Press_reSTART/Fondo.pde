@@ -2,13 +2,15 @@ class Fondo {
   //Atributos
   PImage escenario1;
   PImage escenario2;
+  PImage escenario3;
   PImage zona;
   PImage piso;
 
   //Constructor
-  Fondo(String nombreEscenario1, String nombreEscenario2, String nombrePiso, String zonaMeditacion) {
+  Fondo(String nombreEscenario1, String nombreEscenario2, String nombreEscenario3, String nombrePiso, String zonaMeditacion) {
     escenario1 = loadImage(nombreEscenario1);
     escenario2 = loadImage(nombreEscenario2);
+    escenario3 = loadImage(nombreEscenario3);
     piso = loadImage(nombrePiso);
     zona = loadImage(zonaMeditacion);
   }
@@ -26,6 +28,11 @@ class Fondo {
     image(piso, width/2, 750);
   }
   void mostrar3() {
+    imageMode(CENTER);
+    image(escenario2, width/2, height/2);
+    image(piso, width/2, 750);
+  }   
+  void mostrar4() {
     imageMode(CENTER);
     image(zona, width/2, height/2);
   }

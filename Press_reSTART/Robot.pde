@@ -46,15 +46,11 @@ class Robot {
 
 
   //Metodos
-  void mostrar() {
-    move = loadImage("robot.png");
-  }
   void moverse() {
     //Posiciones reales del jugador (las que se muestran en pantalla)
     pos2_x = pos_x+width/2;
     pos2_y = pos_y+400;
 
-    rect(pos_x, pos_y, 20, 20);
     if (keyPressed && keyCode ==UP && pos_y > 0) {
       speedy = -10;
     }
