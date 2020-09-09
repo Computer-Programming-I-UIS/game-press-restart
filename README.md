@@ -1,6 +1,6 @@
 # ¡Press reSTART! 🕹
 
-!["Banner"](https://i.ibb.co/fXrvfM7/Banner.png)
+!["Banner"](https://i.ibb.co/jh9cgzf/press-restart.png)
 
 ## Descripción 🔻
 
