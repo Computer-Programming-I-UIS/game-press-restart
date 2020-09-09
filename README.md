@@ -1,5 +1,7 @@
 # ¡Press reSTART! 🕹
 
+!["Banner"](https://i.ibb.co/fXrvfM7/Banner.png)
+
 ## Descripción 🔻
 
 Este es un juego de puzzles, en donde cometer el más mínimo error significará el tener que reiniciar el juego mientras que ves cómo tu personaje cae en un bug infinito. Los puzzles consistirán en cómo interactúa el personaje con su entorno mediante adivinanzas, siendo que si escoge mal o se demora más tiempo del otorgado, ocurrirá el bug, obligándolo a reiniciar el juego desde cero.
