@@ -37,11 +37,7 @@ Tambien al momento de tener el programa en nuestro ordenador necesitamos importa
 
 - Interfaz comoda y sencilla a la vista del usuario.
 
-## Gameplay 🎮
-
-https://r4---sn-cvb7lnee.c.drive.google.com/videoplayback?expire=1599668367&ei=T8hYX5_1AoOB-AXbvKvQAQ&ip=191.109.77.126&cp=QVNOQUdfV1NUSFhOOl9ybHQzS2wyV1V3OEVSYlozZUhjejYxRWpoYU96MzhieVFxOWlVNTZxQUM&id=7d4788ab30806d58&itag=18&source=webdrive&requiressl=yes&mh=jW&mm=32&mn=sn-cvb7lnee&ms=su&mv=m&mvi=4&pl=18&ttl=transient&susc=dr&driveid=11UXElEtzzUz8-GBGuVqFZXLu2bFCTGvo&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=30.069&lmt=1599640067489610&mt=1599653788&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRgIhAI217Wa-A1aa6FOXF50IVzFHOayMRK7XPYINADA9N98cAiEA-WHZOzl2Dka214XZfH_hSTPLjRkk1EgU0fIorYZvaVM=&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgCyc91MPWzopWwtaMghvvqEv4uSZDg3aL8HfwqeGz2EwCIBbzNQEMb9VUju7GcA2hlbOKHaG9u-PYMcFG7W6incuI&cpn=cb2exbhCqwGOyFhA&c=WEB_EMBEDDED_PLAYER&cver=20200904
-
-## Imagenes del juego 
+## Imagenes del juego  🎮
 
 - Menu de incio.
 
